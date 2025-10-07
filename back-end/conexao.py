@@ -14,7 +14,7 @@ params = {
     "port": os.getenv("DB_PORT"),
 }
 
-def conecta():
+def conectar():
     try:
         conexao = psycopg2.connect(**params)
         cursor = conexao.cursor()
@@ -23,4 +23,4 @@ def conecta():
     except Exception as erro:
         print(f"Erro ao conectar ao banco de dados: {erro}")
         return None, None
-conecta()
+conectar()
