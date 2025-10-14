@@ -38,3 +38,14 @@ def exibir_filmes():
             "avaliacao":[4]
             })
     return {"filmes": lista}
+
+
+
+@app.put("/filmes/{id_filme}")
+def atualizar_filme(id_filme: int, nova_avaliacao: float):
+    filme = funcao.buscar_filme(id_filme)
+    if filme:
+        funcao.atualizar_filme(id_filme, nova_avaliacao)
+        return {"mensagem": "Filme atualizado com sucesso!"}
+    else:
+        return {"erro": "filme não encontrado"}
